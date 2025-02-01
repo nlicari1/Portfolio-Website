@@ -1,8 +1,8 @@
-import Navigation from "../components/navigation"
-export default function Homepage() {
+
+export default function HomePage() {
     return (
         <>
-            <Navigation />
+            
             <p>Hello World</p>
         </>
     )

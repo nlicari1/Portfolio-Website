@@ -2,8 +2,9 @@ import './styles/index.css'
 
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
-import Homepage from './pages/homepage'
+import HomePage from './pages/homepage'
 import Navigation from './components/navigation'
+import LandingPage from './pages/landingpage'
 
 function App() {
 
@@ -11,7 +12,8 @@ function App() {
     <Router>
       <Navigation />
       <Routes>
-        <Route path='/' element={<Homepage />}/>
+        <Route path='/' element={<LandingPage />}/>
+        <Route path='/home' element={<HomePage />}/>
       </Routes>
     </Router>
   )

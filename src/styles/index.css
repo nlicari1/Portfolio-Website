@@ -1,7 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+
+  }
+  to {
+    opacity: 1;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* Defining global variables */
+:root {
+  --primary-color: #121826;
+  --secondary-color: #1F2937;
+  --accent-color: #9333EA;
+  --text-color: #E5E7EB;
+  --hover-color: #4f46E5;
+  --font-family: 'Manrope', 'sans-serif'
+  --font-size: 16px;
+}
+
+/* Universal styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: var(--font-size);
+  animation: fadeIn 1.5s ease-out;
+}
 
 header {
   position: fixed;
@@ -9,33 +48,98 @@ header {
   left: 0;
   z-index: 100;
   width: 100%;
-  background-color: #0D0D0D;
+  background-color: var(--primary-color);
 
 }
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: .5rem .5rem;
 }
-.nav-links {
+nav ul{
   display: flex;
   list-style: none;
   gap: 2rem;
 }
-.nav-links li {
-  margin: 0;
+nav li {
+  margin: 0 15px;
 }
-
-.nav-links li a {
+nav a {
   text-decoration: none;
-  color: #E5E7EB;
-  font-size: 1.2rem;
-  transition: color 0.3s ease, border-bottom 0.3 ease;
-}
-.nav-links li a:hover {
-  
-  color: #E5E7EB;
-  border-bottom: 2px solid #38BDF8;
+  color: #F9FAFB; /* Starlit White */
+  transition: color 0.3s, text-shadow 0.3s ease;
 }
 
+nav a:hover {
+  color: #38BDF8; /* Cyan Glow */
+  text-shadow: 0 0 8px #38BDF8, 0 0 12px #38BDF8; /* Glow effect */
+}
+button {
+  background-color: #38BDF8;
+  color: #F9FAFB;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+button:hover {
+  background-color: var(--accent-color);
+  transform: translate(-3px);
+}
+
+
+.landing-page {
+  height: 100vh;
+  background-image: url('../assets/pexels-wasifmehmood997-15793172.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  overflow: hidden;
+  text-align: center;
+}
+.name-animation h1, h2{
+  font-size: 4em;
+  font-family: cursive;
+  opacity: 0;
+  overflow: hidden;
+  animation: fadeInAndMove 3s ease-in-out forwards, typing 3s steps(30) 1s forwards, blink 0.75s, step-end infinite;
+  white-space: nowrap;
+  letter-spacing: 2px;
+}
+.name-animation h2 {
+  font-size: 3.5em;
+  margin-top: 10px;
+  animation-delay: 2s;
+}
+@keyframes fadeInAndMove{
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+}
+ @keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+ }
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
